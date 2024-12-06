@@ -1,0 +1,318 @@
+:root {
+    --primary-color: #2c2c2c;
+    --accent-color: #00c853;
+    --hover-color: #00b848;
+    --background-color: #242424;
+    --text-color: #ffffff;
+    --grey-light: #3a3a3a;
+    --grey-dark: #2a2a2a;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+header {
+    background-color: var(--grey-dark);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--grey-light);
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logo {
+    height: 40px;
+    width: auto;
+    fill: var(--accent-color);
+}
+
+nav {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.buy-now {
+    background-color: var(--accent-color);
+    color: white;
+    font-weight: bold;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.buy-now:hover {
+    background-color: var(--hover-color);
+}
+
+.social-btn {
+    color: var(--text-color);
+    font-size: 1.5rem;
+    transition: color 0.3s;
+    background: none;
+    border: none;
+    padding: 0.5rem;
+    cursor: pointer;
+}
+
+.social-btn:hover {
+    color: var(--accent-color);
+}
+
+.puzzle-container {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 1rem;
+}
+
+.level-indicator {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: var(--accent-color);
+}
+
+.puzzle-grid {
+    display: grid;
+    gap: 5px;
+    background-color: var(--grey-dark);
+    padding: 10px;
+    border-radius: 10px;
+    margin: 0 auto;
+    border: 1px solid var(--grey-light);
+}
+
+.puzzle-tile {
+    background-color: var(--accent-color);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    cursor: pointer;
+    aspect-ratio: 1;
+    border-radius: 5px;
+    transition: transform 0.2s;
+}
+
+.puzzle-tile:hover {
+    transform: scale(0.98);
+}
+
+.empty {
+    background-color: transparent;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(36, 36, 36, 0.95);
+    z-index: 1000;
+}
+
+.modal.show {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.modal-content {
+    background-color: var(--grey-dark);
+    padding: 2.5rem;
+    border-radius: 10px;
+    max-width: 500px;
+    text-align: center;
+    border: 1px solid var(--grey-light);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.modal-content h2 {
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+}
+
+.modal-content ul {
+    text-align: left;
+    margin: 1rem 0;
+    padding-left: 2rem;
+}
+
+.modal-content button {
+    background-color: var(--accent-color);
+    color: white;
+    font-weight: bold;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: background-color 0.3s;
+}
+
+.modal-content button:hover {
+    background-color: var(--hover-color);
+}
+
+.private-key {
+    background-color: var(--grey-dark);
+    padding: 1rem;
+    border-radius: 5px;
+    margin: 1rem 0;
+    font-family: monospace;
+    word-break: break-all;
+    border: 1px solid var(--grey-light);
+}
+
+/* Animated Background */
+.animated-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.bg-puzzle {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    fill: rgba(0, 200, 83, 0.08);
+    animation: float 30s linear infinite;
+}
+
+.bg-puzzle:nth-child(1) {
+    top: 15%;
+    left: -100px;
+    animation-delay: 0s;
+    width: 120px;
+    height: 120px;
+}
+
+.bg-puzzle:nth-child(2) {
+    top: 45%;
+    left: -100px;
+    animation-delay: -10s;
+    width: 150px;
+    height: 150px;
+}
+
+.bg-puzzle:nth-child(3) {
+    top: 75%;
+    left: -100px;
+    animation-delay: -20s;
+    width: 130px;
+    height: 130px;
+}
+
+.bg-puzzle:nth-child(4) {
+    top: 30%;
+    left: -100px;
+    animation-delay: -15s;
+    width: 110px;
+    height: 110px;
+}
+
+.bg-puzzle:nth-child(5) {
+    top: 60%;
+    left: -100px;
+    animation-delay: -5s;
+    width: 140px;
+    height: 140px;
+}
+
+@keyframes float {
+    from {
+        transform: translateX(-100px) rotate(0deg);
+    }
+    to {
+        transform: translateX(calc(100vw + 100px)) rotate(360deg);
+    }
+}
+
+/* Make sure the main content is above the background */
+header, main, .modal {
+    position: relative;
+    z-index: 1;
+}
+
+/* Guide Steps Styling */
+.guide-steps {
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.guide-step {
+    text-align: center;
+    padding: 1rem;
+}
+
+.guide-step h2 {
+    margin-bottom: 1.5rem;
+}
+
+.guide-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--grey-light);
+}
+
+.step-dots {
+    display: flex;
+    gap: 8px;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--grey-light);
+    transition: background-color 0.3s;
+}
+
+.dot.active {
+    background-color: var(--accent-color);
+}
+
+#prev-step, #next-step {
+    background-color: transparent;
+    border: 1px solid var(--accent-color);
+    color: var(--accent-color);
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+#prev-step:hover, #next-step:hover {
+    background-color: var(--accent-color);
+    color: white;
+}
